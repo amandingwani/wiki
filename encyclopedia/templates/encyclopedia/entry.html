@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if entry %}
+        <form action="/edit">
+            <button type="submit" name="q" value="{{title}}" class="btn-link">Edit Page</button>
+        </form>
+        {{entry | safe}}
+    {% else %}
+        Wiki does not have an article with this exact name.
+    {% endif %}
+{% endblock %}
